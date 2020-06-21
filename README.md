@@ -7,13 +7,14 @@
 |  Program | Description | Configured   | Todo | 
 |---|---| --- | --- |
 | Alacritty  | GPU-accelerated terminal emulator | no | Add transparent support and switch to `hack` font.
+| Urxvt | Lightway, snappy terminal emulator | |
 | Zim ZSH | ZSH framwork | yes |  |
 | I3 | Window manager | yes | Cleanup config  |
-| rofi | application manager | yes | C |
+| rofi | application manager | yes |  |
 
 ### Terminal
-I switched from `urxvt` to `alacritty` because it is a  GPU-accelerated terminal emulator. Additionally, it is as simple as `urxvt`.
-
+I switched from `urxvt` to `alacritty` because it is a  GPU-accelerated terminal emulator. Additionally, it is as simple as `urxvt` but
+it looks like, that `alacritty` does not support a transparent background.
 
 ### Shell
 #### Zim
@@ -58,29 +59,33 @@ Long time ago I used gnome. Sure gnome has many advantages over i3 but I still g
 #### I3 Thinkpad
 I use the [bumblebee-status](https://github.com/tobi-wan-kenobi/bumblebee-status) bar. This is a very modular i3 statusbar and it features a various of modules. For me, it is enought to use the following configuration
 ```
-bumblebee-status -m nic cpu
-memory battery date 
+bumblebee-status -m nic cpu \
+memory battery date \
 -p nic.states=^down time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t night-powerline
 ```
 
-#### Keybindings
+#### General keybindings
 | Keybinding | Command | Description 
 | --- | --- | -- | 
-|  +Return | exec alacritty | Get a terminal (floating) |
-|  +Shift+q | kill |  Kill current window |
- |  +space | exec rofi -show drun -columns 3  | Run application selector |
- |  +j | focus left | Get focus on the left window |
- |  +h | focus up | Get focus on the top window |
- |  +k | focus down | Get focus on the button window |
- |  +, | focus right | Get focus on the right window |
- |  +`left`| focus left | Get focus on the left window |
- |  +`up` | focus up | Get focus on the top window |
- |  +`down` | focus down | Get focus on the button window |
- |  +`right` | focus right | Get focus on the right window |
+| `win` + `Return` | exec alacritty | Get a terminal (floating) |
+| `win` + `Shift` | kill |  Kill current window |
+| `win` + space | exec rofi -show drun -columns 3  | Run application selector |
+
+####  Focus keybindings
+| Keybinding | Command | Description 
+| --- | --- | -- | 
+ | `win` + `j` | focus left | Get focus on the left window |
+ | `win` + `h` | focus up | Get focus on the top window |
+ | `win` + `k` | focus down | Get focus on the button window |
+ | `win` + `,` | focus right | Get focus on the right window |
+ | `win` +`left`| focus left | Get focus on the left window |
+ | `win` +`up` | focus up | Get focus on the top window |
+ | `win` +`down` | focus down | Get focus on the button window |
+ | `win` +`right` | focus right | Get focus on the right window |
  
 and more.
 
-I like a mimimalistic theme such as the `night-powerline`. Make sure you have the font-awesome fonts installed. Otherwise, the used symbols could not be displayed. 
+I like a mimimalistic theme such as the `night-powerline`. Make sure you have the **font-awesome** fonts installed. Otherwise, the used symbols could not be displayed. 
 
 ##### Change symbols
 If you want to change the symbols, you can do this at line `85` and the following.
@@ -93,7 +98,7 @@ If you want to change the symbols, you can do this at line `85` and the followin
 echo -e "\u[your unicode]"
 ```
 
-The `\u` is not a misstype. It indicate the unicode sequence. 
+The `\u` is not a *misstype*. It indicate the unicode sequence. 
 
 ### Application manager
 #### Rofi

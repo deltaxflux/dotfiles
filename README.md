@@ -1,6 +1,6 @@
 # Dotfiles
 
-![Current laptop config](/home/deltax/Vorlagen/dotfiles/screenshots/main_window_preview.png) 
+![](https://i.imgur.com/Jif3NEw.png) 
 
 ## Programs
 

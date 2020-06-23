@@ -55,8 +55,6 @@ zmodule utility
 #
 # Exposes git repository status information to prompts.
 zmodule git-info
-# A customizable version of steeef's prompt theme.
-zmodule eriner # Adds aliases for the pacman package manager.
 
 # Additional completion definitions for Zsh.
 zmodule zsh-users/zsh-completions
@@ -83,3 +81,5 @@ zmodule ssh
 zmodule git-info
 # Adds aliases for the pacman package manager.
 zmodule pacman
+# add spaceship module
+zmodule denysdovhan/spaceship-prompt --name spaceship

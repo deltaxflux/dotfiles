@@ -25,9 +25,9 @@ The `shell` is the most important configuration, because it is used so frequentl
 * alias(es)
 * git indicator
 
-I don't use the default theme, instead I use the `eriner` theme. You can use this, using following line in `$HOME/.zimrc`.
+I don't use the default theme, instead I use the `spaceship` theme. You can use this, using following line in `$HOME/.zimrc`.
 ```
-zmodule eriner
+zmodule denysdovhan/spaceship-prompt --name spaceship
 ```
 
 After run `zimfw install` to compile the new module. The zim framework is (yet) the fastest. The shell feel s very snapy and the multi-level autocomplete is required for a smooth work flow.
@@ -222,9 +222,21 @@ I use various of gestures, since my touchpad support [multi-touch](https://en.wi
 
 and here is the **config**:
 ```
-gesture swipe down	rofi -show drun -columns 3
-gesture swipe left	i3-msg "workspace prev"
-gesture swipe right	i3-msg "workspace next"
+gesture swipe down rofi -show drun -columns 3
+gesture swipe left i3-msg "workspace prev"
+gesture swipe right 3-msg "workspace next"
 gesture pinch in	xdotool key super+f
-gesture pinch out	xdotool key super+f
+gesture pinch out xdotool key super+f
 ```
+
+### Tmux
+
+![](https://i.imgur.com/dq8RtF3.png) 
+
+I now use the [tmux-themepack](https://github.com/jimeh/tmux-themepack). Since I use red as secound color, I use the red powerline theme. Please make sure, that the powerline fonts are installed.
+
+```
+pacman -S powerline-fonts
+```
+
+After, run `prepare_tmux.sh` to clone all themes. You can now start `tmux`. 

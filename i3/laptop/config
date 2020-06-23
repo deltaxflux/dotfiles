@@ -16,7 +16,7 @@ gaps inner 12
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty -d 80 30
 
 # Kill focused window
 bindsym $mod+Shift+q kill

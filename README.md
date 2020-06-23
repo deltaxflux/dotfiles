@@ -17,6 +17,7 @@ I switched from `urxvt` to `alacritty` because it is a  GPU-accelerated terminal
 it looks like, that `alacritty` does not support a transparent background.
 
 ### Shell
+![](https://i.imgur.com/kBo78Q4.png) 
 #### Zim
 The `shell` is the most important configuration, because it is used so frequently. I use the the [zim zsh framework](https://github.com/zimfw/zimfw)  with minor tweaks. The `zim` framwork support some need features such as
 
@@ -40,6 +41,15 @@ There are many cli tools I use. I provide a small overview
 | [ripgrep](https://github.com/BurntSushi/ripgrep)  | ipgrep recursively searches directories for a regex pattern  | 
  | [ripgrep-all](https://github.com/phiresky/ripgrep-all)  | ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, ... |
  |  [git](https://github.com/git/git)  | revision control system |
+ | [autojump](https://github.com/wting/autojump) |  a faster way to navigate your filesystem |
+ | [ad](https://github.com/tanrax/terminal-AdvancedNewFile) | faster file and folder creator |
+ | [parallel](https://www.gnu.org/software/parallel/) | Build and execute shell command lines from standard input in parallel |
+ | [z](https://github.com/rupa/z) | easier file navigator |
+ | [tmux](https://github.com/tmux/tmux/wiki) | terminal multiplexer | 
+ | [add-gitignore](https://github.com/TejasQ/add-gitignore) | https://github.com/TejasQ/add-gitignore |
+ | [bat](https://github.com/sharkdp/bat) | cat with wings  and syntax highlighting |
+ | [youtube-dl](https://github.com/ytdl-org/youtube-dl) | youtube downloader |
+ [ [jq] | sed for json |
  
  and many more.
 
@@ -103,3 +113,118 @@ The `\u` is not a *misstype*. It indicate the unicode sequence.
 ### Application manager
 #### Rofi
 I switch and run applications using `rofi`.  I previously used `albert` but since `albert` has annoying bugs.  I decided to switch to rofi. Rofi search `$HOME/.config/rofi` for `config.rasi`.
+The new config of rofi is pretty light but snappy and fast.
+```
+* {
+  black:      #000000;
+  red:        #eb6e67;
+  green:      #95ee8f;
+  yellow:     #f8c456;
+  blue:       #6eaafb;
+  mangenta:   #d886f3;
+  cyan:       #6cdcf7;
+  emphasis:   #50536b;
+  text:       #dfdfdf;
+  text-alt:   #b2b2b2;
+  fg:         #abb2bf;
+  bg:         #282c34;
+
+  spacing: 0;
+  background-color: transparent;
+
+  font: "Knack Nerd Font 14";
+  text-color: @text;
+}
+
+window {
+  transparency: "real";
+  fullscreen: true;
+  background-color: #282c34dd;
+}
+
+mainbox {
+  padding: 30% 30%;
+}
+
+inputbar {
+  margin: 0px 0px 20px 0px;
+  children: [prompt, textbox-prompt-colon, entry, case-indicator];
+}
+
+prompt {
+  text-color: @blue;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  str: ":";
+  text-color: @text-alt;
+}
+
+entry {
+  margin: 0px 10px;
+}
+
+listview {
+  spacing: 5px;
+  dynamic: true;
+  scrollbar: false;
+}
+
+element {
+  padding: 5px;
+  text-color: @text-alt;
+  highlight: bold #95ee8f; /* green */
+  border-radius: 3px;
+}
+
+element selected {
+  background-color: @emphasis;
+  text-color: @text;
+}
+
+element urgent, element selected urgent {
+  text-color: @red;
+}
+
+element active, element selected active {
+  text-color: @purple;
+}
+
+message {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: @emphasis;
+  border: 1px;
+  border-color: @cyan;
+}
+
+button selected {
+  padding: 5px;
+  border-radius: 3px;
+  background-color: @emphasis;
+}
+
+```
+
+I use the `oneDark` theme submited by the user.
+
+### Gestures
+I use various of gestures, since my touchpad support [multi-touch](https://en.wikipedia.org/wiki/Multi-touch). Use following gestures. Pretty much, they are mac like gestures e.g. you can change the workspace if you wipe with 3 fingers left or right. However, this only works if a minimum of 3 fingers are used.
+
+| Gesture | Command 
+| --- | --- |
+| gesture swipe down	| rofi -show drun -columns 3 |
+| gesture swipe left	| i3-msg "workspace prev" |
+| gesture swipe right	| i3-msg "workspace next" |
+| gesture pinch in |	xdotool key super+f |
+| gesture pinch out |	xdotool key super+f |
+
+and here is the **config**:
+```
+gesture swipe down	rofi -show drun -columns 3
+gesture swipe left	i3-msg "workspace prev"
+gesture swipe right	i3-msg "workspace next"
+gesture pinch in	xdotool key super+f
+gesture pinch out	xdotool key super+f
+```

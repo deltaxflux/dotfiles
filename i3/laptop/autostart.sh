@@ -1,46 +1,24 @@
 #!/usr/bin/env bash
 
-exec feh --bg-scale $HOME/Bilder/Wallpaper.png &
+readonly _custom_autostart_programs=(firefox keepassxc evince thunderbird anki "libinput-gestures-setup start")
 
-# ------------------------------------------------------------------------------
-# Comptom
-compton &
+echo -e "Try to start programs:"
+for i in "${_custom_autostart_programs[@]}";do 
+  echo -e "\t -> $i"
 
-# ------------------------------------------------------------------------------
-# Run default user settings
-xrdb -merge .Xresources &
+  # check if the program is already executed
+  if [ "$(pgrep $(echo $i | cut -d " " -f1 ))" == "" ];then
+    $i &
+    if [ $? -eq 0 ];then
+      echo -e "\t\t - start succesfull"
+    else
+      echo -e "\t\t - start succesfull"
+    fi
 
-# ------------------------------------------------------------------------------
-# Quick fix for java applications
-export "_JAVA_AWT_WM_NONREPARENTING=1"
+    echo -e "\t\t - at pid $!" 
 
-# ------------------------------------------------------------------------------
-# Set wallpaper
-neon &
+  else
 
-# ------------------------------------------------------------------------------
-# Allow notifications
-dunst -font "pango:Inconsolata 10" &
-
-exec xautolock -detectsleep \
-  -time 600 -locker "i3lock -d -c 000070" \
-  -notify 10 \
-  -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 10 min'" &
-
-exec firefox &
-
-exec keepassxc &
-
-exec thunderbird &
-
-exec evince &
-
-exec anki &
-
-exec spotify &
-
-exec telegram-desktop
-
-exec code &
-
-exec intellij-idea-ultimate-edition &
+    echo -e "\t\t - program already running at: $(pgrep $i)"
+  fi
+done

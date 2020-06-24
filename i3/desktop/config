@@ -1,5 +1,4 @@
 # >>> Plasma Integration <<<
-
 # Try to kill the wallpaper set by Plasma (it takes up the entire workspace
 # and hides everythiing)
 exec --no-startup-id wmctrl -c Plasma
@@ -30,7 +29,6 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 for_window [title="Android Emulator"] floating enable #android emulator
 for_window [title="iTiler"] floating enable #android emulator
-
 
 # Default modkey
 set $mod Mod4
@@ -105,6 +103,7 @@ bindsym $mod+p focus mode_toggle
 bindsym $mod+a focus parent
 
 # Name the workspaces
+# Not used, because latter dock is used.
 set $workspace1 " 1:  "
 set $workspace2 " 2:  "
 set $workspace3 " 3:  "

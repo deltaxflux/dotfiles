@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 
-echo "alias cat=bat" >> $HOME/.zshrc
+cat <<EOF >> $HOME/.zshrc
+alias cat=bat
+alias schuh=true
+EOF
